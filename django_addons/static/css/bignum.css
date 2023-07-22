@@ -1,0 +1,19 @@
+{% comment%}
+   Make list numbers big.
+   You need to wrap the text in a div, or it will be big too.
+{% endcomment %}
+
+    <style type="text/css" media="screen">
+        ol li {
+            font-size: 2em;
+            margin: 1em 0 0 2em;
+        }
+        ol li div {
+            font-size: 0.5em;
+        }
+        ul li {
+            font-size: 1em;
+            margin: 0 0 0 0;
+        }
+    </style>
+

@@ -1,0 +1,66 @@
+
+/* Adapted from blackrock-digital.css */
+
+@media (max-width: 575px) { .navbar-toggleable .navbar-nav .dropdown-menu { position: static; float: none; }
+  .navbar-toggleable > .container { padding-right: 0; padding-left: 0; } }
+@media (min-width: 576px) { .navbar-toggleable { flex-direction: row; flex-wrap: nowrap; align-items: center; }
+  .navbar-toggleable .navbar-nav { flex-direction: row; }
+  .navbar-toggleable .navbar-nav .nav-link { padding-right: .5rem; padding-left: .5rem; }
+  .navbar-toggleable > .container { display: flex; flex-wrap: nowrap; align-items: center; }
+  .navbar-toggleable .navbar-collapse { display: flex !important; width: 100%; }
+  .navbar-toggleable .navbar-toggler { display: none; } }
+@media (max-width: 767px) { .navbar-toggleable-sm .navbar-nav .dropdown-menu { position: static; float: none; }
+  .navbar-toggleable-sm > .container { padding-right: 0; padding-left: 0; } }
+@media (min-width: 768px) { .navbar-toggleable-sm { flex-direction: row; flex-wrap: nowrap; align-items: center; }
+  .navbar-toggleable-sm .navbar-nav { flex-direction: row; }
+  .navbar-toggleable-sm .navbar-nav .nav-link { padding-right: .5rem; padding-left: .5rem; }
+  .navbar-toggleable-sm > .container { display: flex; flex-wrap: nowrap; align-items: center; }
+  .navbar-toggleable-sm .navbar-collapse { display: flex !important; width: 100%; }
+  .navbar-toggleable-sm .navbar-toggler { display: none; } }
+@media (max-width: 991px) { .navbar-toggleable-md .navbar-nav .dropdown-menu { position: static; float: none; }
+  .navbar-toggleable-md > .container { padding-right: 0; padding-left: 0; } }
+@media (min-width: 992px) { .navbar-toggleable-md { flex-direction: row; flex-wrap: nowrap; align-items: center; }
+  .navbar-toggleable-md .navbar-nav { flex-direction: row; }
+  .navbar-toggleable-md .navbar-nav .nav-link { padding-right: .5rem; padding-left: .5rem; }
+  .navbar-toggleable-md > .container { display: flex; flex-wrap: nowrap; align-items: center; }
+  .navbar-toggleable-md .navbar-collapse { display: flex !important; width: 100%; }
+  .navbar-toggleable-md .navbar-toggler { display: none; } }
+@media (max-width: 1199px) { .navbar-toggleable-lg .navbar-nav .dropdown-menu { position: static; float: none; }
+  .navbar-toggleable-lg > .container { padding-right: 0; padding-left: 0; } }
+@media (min-width: 1200px) { .navbar-toggleable-lg { flex-direction: row; flex-wrap: nowrap; align-items: center; }
+  .navbar-toggleable-lg .navbar-nav { flex-direction: row; }
+  .navbar-toggleable-lg .navbar-nav .nav-link { padding-right: .5rem; padding-left: .5rem; }
+  .navbar-toggleable-lg > .container { display: flex; flex-wrap: nowrap; align-items: center; }
+  .navbar-toggleable-lg .navbar-collapse { display: flex !important; width: 100%; }
+  .navbar-toggleable-lg .navbar-toggler { display: none; } }
+.navbar-toggleable-xl { flex-direction: row; flex-wrap: nowrap; align-items: center; }
+.navbar-toggleable-xl .navbar-nav .dropdown-menu { position: static; float: none; }
+.navbar-toggleable-xl > .container { padding-right: 0; padding-left: 0; }
+.navbar-toggleable-xl .navbar-nav { flex-direction: row; }
+.navbar-toggleable-xl .navbar-nav .nav-link { padding-right: .5rem; padding-left: .5rem; }
+.navbar-toggleable-xl > .container { display: flex; flex-wrap: nowrap; align-items: center; }
+.navbar-toggleable-xl .navbar-collapse { display: flex !important; width: 100%; }
+.navbar-toggleable-xl .navbar-toggler { display: none; }
+
+.sb-navbar { background-color: white; border-bottom: 1px solid #eceeef; }
+.sb-navbar .navbar-toggler { font-size: 12px; text-transform: uppercase; padding: 13px; font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif; font-weight: 700; }
+.sb-navbar .navbar-toggler i { margin-right: 2px; font-size: 10px; }
+.sb-navbar .navbar-brand { color: rgba(0, 0, 0, 0.5); font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif; font-weight: 700; }
+.sb-navbar .navbar-right li a:focus { outline: none; }
+
+.navbar-toggler-right { position: absolute; right: 1rem; }
+
+.sb-card { background: whitesmoke; border: 1px solid #ededed; border-bottom: 3px solid #ededed; margin-bottom: 30px; }
+.sb-card .sb-img { transition: all 0.2s ease-in-out; }
+.sb-card .sb-img:hover { opacity: 0.7; }
+.sb-card .btn { font-size: 11px; }
+
+.card-block { flex: 1 1 auto; padding: 1.25rem; }
+
+blue-box .blue-box-contents { color: white; background-color: blue; padding: 30px 0; }
+blue-box .blue-box-contents .input-group { max-width: 500px; margin: 30px auto 0; }
+blue-box .blue-box-contents .input-group input { border: 0; border-bottom: #ccc 3px solid; box-shadow: none; }
+blue-box .blue-box-contents .input-group .input-group-btn { border-left: 2px solid #ccc; }
+blue-box .blue-box-contents .input-group .input-group-btn .btn { font-size: 12px; }
+
+/* end blackrock-digital.css */

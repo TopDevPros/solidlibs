@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2"
+   width="266.66666"
+   height="266.66666"
+   viewBox="0 0 266.66666 266.66666"
+   sodipodi:docname="Kebab_icon.svg"
+   inkscape:version="0.92.1 r15371"
+   inkscape:export-filename="django_addons/static/images/Kebab_icon.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata8">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="732"
+     inkscape:window-height="480"
+     id="namedview4"
+     showgrid="false"
+     inkscape:zoom="0.88500003"
+     inkscape:cx="53.107343"
+     inkscape:cy="133.33333"
+     inkscape:window-x="497"
+     inkscape:window-y="201"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <image
+     width="31.683596"
+     height="31.548"
+     preserveAspectRatio="none"
+     style="image-rendering:optimizeQuality"
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz AAALEwAACxMBAJqcGAAABm5JREFUeJzt3VmoVWUYxvH/PudoUVQ2iHlRFlJpkw0UNglddBUNNAcN RBKFXUQ3EVEEUURFRdAARXRVCdVVERF1UzQYzVoqDRaBUpJlA3aOerr43BTWwaP7W++7z9r/H3wg 3qznPfCw1t5rr/WBJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEn/r5MdQABMA2YDM4Bx4BdgLbA5M5SU ZRg4C3gU+BQYpRTj32sU+Bh4CFgEDKUklQJNB5YAa/hvIXa0VgOLgZHo0FKERcAqdr4Y26/lwMLg 7FJjhoA7ga30Xo7u2gzcjJ8hNcUNA89Qrxjbr4exJJqiOsBjNFeO7ro7aiCppsU0X47uujhoJqmK OcDvxBVkA3BgyGRSBUuJK0d3PR0ymdSjo4gvxziwBZgbMN9A8e5sfUuSjjsE3JB0bGlShoH15JxB xoEf8Gtf9bGTyStHdx3Z+JQDxEusuk7KDkApqSqxIHXNzw4AzMsO0CYWpK7Z2QGAWdkB2sSC1DU9 OwCwe3aANrEgdW3KDkB/ZGgNC1LX2uwAwLrsAG1iQer6IjsAsDI7QJtYkLqWZQcA3s8OIE1kiHKJ k3WT8Fu8k16VZ5C6tgLPJx7/OUpRpL51GHWfP5/sGgMODphP6tkzxBfkiYjBpBpmU57yiyrHemBm yGRSJZcQV5BzgmaSqrqL5stxW9g0UmUd4H6aK8c9+LWuWuBGyrdMtYrxF3Bd6ARSw04EPqH3ciwD FgRnl0IMA1dTfrO1s8X4GLgMb+5qAHQob2i/F3gX+IP/FmIj8Dblg/4J+FkjhX/0/tABDuCfHaY2 AD9v+7ckSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSVIYX16da1/gdOBYYA6wz7b/3wCs AT4D3gF+yQgnZZgGXAG8AWxmx/uCjAGvU/YGGUnIK4W5nHJm2NXdpb4CLowOLTVtJvAK9fYofBHY L3QCqSHz6e2sMdH6Gjg8bgypviOBH6lfju5ahyXRFDUT+I7myvHvM4mXW5pyXqX5cnTXS0EzSVVc SVw5uuuCkMmkHk0Hvie+IKsp+7BLfe0q4svRXRcHzCf15C3yCvJqwHzSLjsA2EJeQUaBvRqfcoAM ZQdomdPI/ZtOA05JPH7rWJC6jssOACzIDtAmFqSuOdkB6I8MrWFB6uqH6/8Z2QHaxILUNZYdgPJh XZVYkLo2ZgegPI2oSixIXWuyA9AfGVrDgtT1eXYA4NPsANJE9mZyz5k3tTYBezQ+5QDxDFLXRuDN xOO/BvyZeHxphy4l7wxybsB8Uk+GKW8fiS7HCrwi0BRxIfEFOTtkMqmSl4grx7NBM0nV7EvMpdaX lG/PpClnLrCW5srxA3Bo2DRSA+bSzJnkSyyHWmIG5XWhtcqxFC+r1ELnU94+sqvFWIn3OtRyQ8BF lJdZj7LjUvwFvEx575X3OYK5gU6uPSnPsR8NHELZQGeYsmHOt5QfHr4H/J6UT5IkSZIkSZIkSZIk SZIkSZIkSZIkSZIkSZIkSZIkSZIkDRhfXt0fRoDZlJdXdygvr14LbM4MJWXpAGcCj1De4D7G/297 8BHwIHBGTkwp1jTgeuBrdn7znFXAtZTtEaTWOR34gt63X/sMODk4u9So24Et1NujcAy4KXQCqQEd 4Cnq73DbXQ/EjSLV9zDNlaO77gibRqroGpovR3edFzSTVMUc4DfiCvITMDNkMqmCF4grR3c9GTKZ 1KMFxJdjnPLN1iHNjzdY3Ji+viVJxx0Bbkg6tjQpI8DP5JxBxoHvmh9R2nWnkFeO7prf+JQDxEus uhZmB8CfoVRlQeo6IjsAMC87QJtYkLoOzA4AzMoO0CYWpK7dsgMAu2cHaBMLUtem7AD0R4bWsCB1 rcsOQH9kaA0LUteq7ADAyuwAbWJB6novOwDwfnYAaSLDwHrybhJ+0/yIg8UzSF1bKL/kzfJc4rGl STkG2Er82WMUOChgPqlnS4kvyKMhk0kVHAT8Slw5fgT2D5lMquQKYsqxFTg7aCapqvtpviC3hk0j VdYBHqe5ctwTN4rUnFsob2qvVYxRfLxWLXMqsILey/EhcHxwdinECLAYWM3OF2M55YO/N3fVeh1g EWXvjw8oP1HfvhB/Au8C91GedVcCd5jqD0OUHaZmUMqxgfKz9fHMUJIkSZIkSZIkSZIkSZIkSZIk SZIkSZIkaWJ/A/zRstXVoMGNAAAAAElFTkSuQmCC "
+     id="image10"
+     x="70.033913"
+     y="81.401138"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+</svg>

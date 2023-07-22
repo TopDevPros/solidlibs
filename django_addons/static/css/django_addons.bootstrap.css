@@ -1,0 +1,57 @@
+/* --------------------------------------------------------------
+
+   Custom overrides for bootstrap css rules.
+
+   Last modified: 2021-01-28
+-------------------------------------------------------------- */
+
+
+@media screen and (max-width:576px) {
+   h1 {
+     font-size:1.5rem;
+     font-weight: bolder;
+   }
+   h4 {
+     font-size:1.25rem;
+   }
+}
+
+/* Drop cap for the first letter of text.
+   This is called a drop cap even when it doesn't drop. */
+.dropcap:first-letter {
+    font-size: 200%;
+}
+
+/* Remove abbr dotted underline */
+abbr[title] {
+    border-bottom: none;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* these don't seem to work as advertised */
+.vert-align-top {
+    vertical-align : top;
+}
+.vert-align-middle {
+    vertical-align : middle;
+}
+.vert-align-bottom {
+    vertical-align : bottom;
+}
+
+.alert-danger {
+  color: white;
+  background-color: red;
+}
+
+.image-border
+{
+  border-width: 1px;
+  border-color: Black;
+  padding:10px;
+}
+

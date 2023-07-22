@@ -1,0 +1,24 @@
+
+#container {margin:0 auto;position:relative;text-align:left;background:#fff;margin-bottom:2em;
+}	
+/* Sudo Slider */
+#slider ul, #slider li{margin:0 10px 0 60px;padding:0;list-style:none;position:relative;display:block;}
+/* Uncomment this if you wan't to only have 1 visible slide before the javascript kicks in. 
+#slider li {display:none;}	
+#slider li:first-child {display:block;}
+*/
+
+#slider, #slider li {overflow:hidden;}
+/* // Sudo Slider */	
+/* Numeric Navigation */
+ol {margin:1em 0;padding:0;height:28px;	}
+ol li{margin:0 10px 0 0; padding:0;float:left;list-style:none;height:28px;line-height:28px;}
+ol li a{float:left;height:28px;line-height:28px;border:1px solid #ccc;background:#DAF3F8;color:#555;padding:0 10px;text-decoration:none;}
+ol li.current a{background:#5DC9E1;color:#fff;}
+ol li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
+
+.graphic, .prevBtn, .nextBtn{margin:0;padding:0;display:block;overflow:hidden;text-indent:-8000px;}
+
+.prevBtn, .nextBtn {display:block;width:40px;height:40px;position:absolute;top:100px;z-index:1000;background:url(/static/images/general/previous.png) no-repeat 0 0;cursor:pointer;}
+.nextBtn{left:700px;}	
+.nextBtn {background:url(/static/images/general/next.png) no-repeat 0 0;}

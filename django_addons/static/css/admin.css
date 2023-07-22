@@ -1,0 +1,80 @@
+/*
+    Django admin custom css.
+
+    Last modified: 2019-06-24
+*/
+
+/* Fix vertical alignment of text and image in admin buttons */
+.object-tools a:link, .object-tools a:visited {
+    line-height: 12px;
+}
+
+.branding {
+    text-decoration: none;
+    vertical-align:middle;
+}
+
+.branding a:link, a:hover {
+    text-decoration: none;
+}
+
+#header {
+    background: black;
+    height: 25pt;
+}
+
+
+fieldset .field-box {
+    float: left;
+    margin-right: 30px;
+}
+
+fieldset .field-box label {
+    margin-left: 0px;
+}
+
+fieldset .vTextField .wide {
+    width: 80em;
+}
+fieldset .vURLField .wide {
+    width: 80em;
+}
+
+.aligned label {
+    text-align: right;
+}
+
+.UNUSED-inline-related {
+    /* admin inlines were jammed together */
+    margin-top: 2em;
+}
+
+fieldset.collapsed h2, fieldset.collapse h2 {
+    /* admin collapse fieldset headers were visually noisy */
+    background: none;
+    background-image: none;
+    color: black;
+    font-weight: normal;
+}
+
+fieldset.collapsed label {
+    /* help "Advanced" label line up with others */
+    margin-left: 3px;
+    display: block;
+}
+
+.inline-related span.delete {
+    /* twitter bootstrap sets labels to 'display:block',
+       which doesn't work for django admin inline delete checkboxes
+
+       See .inline-related span.delete label */
+   display: block;
+}
+.inline-related span.delete label {
+    /* twitter bootstrap sets labels to 'display:block',
+       which doesn't work for django admin inline delete checkboxes
+
+       See .inline-related span.delete */
+   display: inline;
+}
+
