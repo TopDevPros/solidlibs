@@ -1,0 +1,72 @@
+#! /usr/bin/python3
+
+'''
+    Run all doctests in one or more directories.
+
+    If the packages or modules require a virtualenv,
+    be sure to activate that virtualenv before running this program.
+
+    Copyright 2020-2023 solidlibs
+    Last modified: 2023-05-17
+
+    This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.
+'''
+
+import os
+import os.path
+import subprocess
+import sys
+
+from solidlibs.os.command import run
+
+VERBOSE = False
+
+passed = 0
+failed = 0
+
+def run_tests_in_dir(d):
+    ''' Run doctests in dir. '''
+
+    global passed
+    global failed
+
+    for f in os.listdir(d):
+        path = os.path.join(d, f)
+
+        if os.path.isdir(path):
+            run_tests_in_dir(path)
+
+        else:
+            if path.endswith('.py'):
+
+                try:
+                    if VERBOSE:
+                        result = run('python3', '-m', 'doctest', '-v', path)
+                    else:
+                        result = run('python3', '-m', 'doctest', path)
+
+                except subprocess.CalledProcessError as cpe:
+                    print(f'failed {path}')
+                    failed = failed + 1
+                    if VERBOSE:
+                        print(cpe.stderrout)
+
+                else:
+                    print(f'passed {path}')
+                    passed = passed + 1
+                    for output in [result.stderr, result.stdout]:
+                        output = output.strip()
+                        if output:
+                            print(output)
+
+dirs = sys.argv[1:]
+if dirs:
+    for d in dirs:
+        if os.path.isdir(d):
+            run_tests_in_dir(d)
+        else:
+            print(f'not a dir: {d}')
+    print(f'passed {passed}, failed {failed}, total {passed + failed}')
+
+else:
+    print('usage: doctests DIR ...')
