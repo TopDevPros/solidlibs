@@ -1,0 +1,17 @@
+        {% comment %}
+            Some JSON implementations are unreliable.
+            For example, some releases of firefox JSON can't stringify
+            objects or arrays. Sometimes when our code is wrong
+            it helps to step through json stringify() or parse().
+
+            In both cases we use the reference implmentation of
+            json, "json2". It will not replace existing JSON, so we
+            remove the old JSON first with "JSON = {};".
+
+            https://github.com/douglascrockford/JSON-js/blob/master/json2.js
+        {% endcomment %}
+
+        <script type="text/javascript">
+            JSON = {};
+        </script>
+        <script type="text/javascript" src="/django_addons/static/js/json2.js"></script>

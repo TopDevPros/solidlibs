@@ -1,0 +1,18 @@
+{% comment %}
+
+    Copyright 2018-2023 solidlibs
+    Last modified: 2023-05-17
+
+{% endcomment %}
+{% load i18n %}
+
+<form action="/i18n/setlang/" method="post" style="display: inline;" id="language-form">
+  {% csrf_token %}
+  <div style="display: inline;">
+    <select name="language" onchange="javascript:form.submit()">
+      {% for lang in LANGUAGES %}
+        <option value="{{ lang.0 }}"{% if LANGUAGE_CODE == lang.0 %} selected="selected"{% endif %}>{{ lang.1 }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</form>

@@ -1,0 +1,67 @@
+{% comment %}
+
+    Copyright 2013-2023 solidlibs
+    Last modified: 2023-05-17
+
+{% endcomment %}
+{% load i18n %}
+
+<div class="row">
+    <div class="col-md-5">
+        {% include 'django_addons/clips/form_error_handling.html' %}
+
+        <div id="content-main">
+        <form action="/sign_in/" method="post" id="login-form" class="well form-inline">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="id_username" class="required">{% trans 'Email:' %}</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="input-xlarge">
+                        {{ form.username }}
+                    </div>
+                    {% if not form.this_is_the_login_form.errors %}
+                    <span class="alert-error">{{ form.username.errors }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="id_password" class="required">{% trans 'Password:' %}</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="input-xlarge">
+                        {{ form.password }}
+                    </div>
+                    {% if not form.this_is_the_login_form.errors %}
+                    <span class="alert-error">{{ form.password.errors }}</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <input type="hidden" name="this_is_the_login_form" value="1" />
+            <input type="hidden" name="next" value="{{ next }}" />
+
+            <div class="row">
+                <div class="col-md-3">&nbsp;</div>
+                <div class="col-md-2">
+                    <input
+                        type="submit"
+                        class="btn btn-primary btn-large"
+                        value="{% trans 'Log in' %}"
+                        name="_signin"
+                        alt="{% trans 'Log in' %}"
+                        title="{% trans 'Use the credentials emailed when you purchased your account.' %}"/>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+document.getElementById('id_username').focus()
+</script>
+</div>
+

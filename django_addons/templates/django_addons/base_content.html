@@ -1,0 +1,169 @@
+{% comment %}
+    Copyright 2012-2023 solidlibs
+    Last modified: 2023-05-20
+{% endcomment %}
+{% load i18n bootstrap4 custom %}
+
+{% block init %}
+    {% comment %}
+        Any template initial processing, such as setting variables
+    {% endcomment %}
+{% endblock init %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"/>
+    <meta name="copyright" content={% block copyright %}"{% include 'clips/copyright.html' %}"{% endblock copyright %} />
+    <meta name="author" content={% block author %}"{% include 'clips/author.html' %}"{% endblock author %} />
+
+<title>
+{% minwhitespace %}
+{% block title %}
+    {% comment %}
+        Let individual templates define the title.
+
+        The titlevar block is the variable part of the title.
+        If there is a 'title' variable, it is the default titlevar block.
+        Most pages should change the 'title' variable or titlevar block.
+        Few pages should change the whole title block.
+
+        For SEO the title and headline should match.
+        So the default headline is the same as the  default title.
+    {% endcomment %}
+
+    {% block titlevar %}
+        {% if title %}
+            {{ title }}
+        {% else %}
+            {% comment %}
+                Since every page needs a unique title, we need to alert here.
+                Custom tag to send mail?
+            {% endcomment %}
+            {% include 'clips/title.html' %}
+        {% endif %}
+    {% endblock %}
+    | {% include 'clips/company_name.html' %}
+
+{% endblock title %}
+{% endminwhitespace %}
+</title>
+
+{% block extrahead %}
+    <meta name="language" content="{{ LANGUAGE_CODE }}" />
+    <meta name="googlebot" content={% block meta_googlebot %}"index,follow"{% endblock meta_googlebot %}/>
+    <meta name="robots" content={% block meta_robots %}"index,follow"{% endblock meta_robots %} />
+    {% block meta_revisit %}<!--meta name="Revisit-After" content="7 days" /-->{% endblock meta_revisit %}
+
+    {% block meta_description %}
+    {% endblock meta_description %}
+    {% block meta_keywords %}
+    {% endblock meta_keywords %}
+    {% block meta_subject %}
+    {% endblock meta_subject %}
+{% endblock extrahead %}
+
+{% block extrastyle %}
+    {% include 'django_addons/clips/css_basic.html' %}
+{% endblock extrastyle %}
+</head>
+
+{% block body_start %}
+<body>
+{% endblock body_start %}
+
+{% block top_of_page %}
+    {% comment %}
+        Useful if you want to return to the top of the page
+    {% endcomment %}
+{% endblock top_of_page %}
+
+{% block navclass %}
+    {% block navbackground %}
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #000000;">
+    {% endblock navbackground %}
+          {% include 'clips/logo.html' %}
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% block navpane %}
+                    {% block navlinks %}
+                        {% include 'clips/navbar.html' %}
+                    {% endblock navlinks %}
+                    {% block usertools %}
+                        {% include 'django_addons/clips/user_tools.html' %}
+                    {% endblock usertools %}
+                {% endblock navpane %}
+                {% block userlinks %}{% endblock userlinks %}
+                {% block search %}{% endblock search %}
+            </ul>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    </nav>
+{% endblock navclass %}
+
+<div class="container">
+
+    {% block container_header %}
+        {# kludge: spacer so top of page isn't hidden under navbar #}
+        &nbsp;<br/>&nbsp;<br/>&nbsp;<br/>
+    {% endblock container_header %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}<div class="card text-white mb-4 px-2" style="background-color:lightgreen" role="alert">{{ message }}</div>{% endif %}
+                    {% if message.tags == 'error' %}<div class="card text-white mb-4 px-2" style="background-color:red" role="alert">{{ message }}</div>{% endif %}
+                    {% if message.tags == 'warning' %}<div class="card text-black mb-4 px-2" style="background-color:yellow" role="alert">{{ message }}</div>{% endif %}
+                    {% if message.tags == 'info' %}<div class="card text-white mb-4 px-2" style="background-color:blue" role="alert">{{ message }}</div>{% endif %}
+                    {% if message.tags == 'light' %}<div class="card text-white mb-4 px-2" style="background-color:lightblue" role="alert">{{ message }}</div>{% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% block body-content %}
+                {% block oldheadlinestyle %}
+                {% endblock oldheadlinestyle %}
+
+                {% block contentpane %}
+                    {% block mainpane %}
+                    {% endblock mainpane %}
+
+                    {% block rightsidepane %}
+                    {% endblock rightsidepane %}
+                {% endblock contentpane %}
+            {% endblock body-content %}
+
+        </div> {# class="col-md-12" #}
+    </div> {# class="row" #}
+</div>  {# class="container" #}
+
+<div>
+    {% block footer %}
+        <p>&nbsp;</p>
+        <div class="row"><hr></div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFooter" aria-controls="navbarFooter" aria-expanded="false" aria-label="Toggle navigation">
+                <img alt="Footer" src="{{ 'images/Kebab_icon.png'|data_img }}">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarFooter">
+                <ul class="navbar-nav mr-auto">
+                    {% block footer-content %}
+                    {% include 'clips/footer.html' %}
+                    {% endblock footer-content %}
+                </ul>
+            </div>
+        </nav>
+    {% endblock footer %}
+</div>
+{% block extrascript %}
+    {% include 'django_addons/clips/js_basic.html' %}
+{% endblock extrascript %}
+</body>
+</html>
+

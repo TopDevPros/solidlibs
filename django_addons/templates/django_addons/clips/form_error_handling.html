@@ -1,0 +1,33 @@
+{% comment %}
+
+    Django's form error handling.
+
+    Include in templates before the form. For example:
+
+        {% include 'django_addons/clips/form_error_handling' %}
+        <div id="content-main">
+        <form ...>
+
+    Extracted as a snippet from django template.
+
+    Copyright 2012-2023 solidlibs
+    Last modified: 2023-05-17
+
+{% endcomment %}
+
+{% load i18n %}
+
+            {% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
+            <p class="alert-error">
+            {% blocktrans count form.errors.items|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
+            </p>
+            {% endif %}
+
+            {% if form.non_field_errors or form.this_is_the_login_form.errors %}
+            {% for error in form.non_field_errors|add:form.this_is_the_login_form.errors %}
+            <p class="alert-error">
+                {{ error }}
+            </p>
+            {% endfor %}
+            {% endif %}
+

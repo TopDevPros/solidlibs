@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% comment %}
+    Copyright 2022-2023 solidlibs
+    Last modified: 2023-05-17
+{% endcomment %}
+{% load i18n custom %}
+
+{% block meta_description %}
+    <meta name="Description" content= "Document Not Found">
+{% endblock meta_description %}
+
+{% block titlevar %}Document Not Found{% endblock %}
+
+{% block body-content %}
+<div id="content-main">
+
+    {% title "Document Not Found" %}
+
+    <p class="dropcap">Please remember to use upper and lower case when entering an internet address.</p>
+
+    {% subtitle "You can:" %}
+
+    <ul>
+        <!--li><p><a href="/search/">search for the information</a> on our site</p></li-->
+
+        <li><p>send e-mail requesting help to <strong>{{email_address|default:"support"}}</strong>.
+        </p></li>
+
+        <li><p>start with <a href="/">{{company_name|default:"our"}} home page</a>.</p></li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+{% endblock %}

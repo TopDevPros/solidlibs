@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% comment %}
+    Copyright 2022-2023 solidlibs
+    Last modified: 2023-05-17
+{% endcomment %}
+{% load i18n custom %}
+
+{% block meta_keywords %}
+    <meta name="Keywords" content="csrf verification error">
+{% endblock meta_keywords %}
+{% block meta_description %}
+    <meta name="Description" content="Error: Unable to submit form because cookies aren't enabled.">
+{% endblock meta_description %}
+
+{% block title %}
+    CSRF Verification Error
+{% endblock %}
+
+{% block content %}
+    {% title %}
+
+        {% if reason %}
+            Unable to Submit Form: {{ reason }}
+        {% else %}
+            CSRF Verification Error
+        {% endif %}
+    {% endtitle %}
+
+    <div class="col-md-8">
+    <p class="dropcap">
+    Do you allow cookies? If not, then please
+    <ol>
+        <li>Enable cookies for this site in your browser</li>
+        <li>Back up to the form page</li>
+        <li>Click your browser's reload button
+            <!--img src="/static/images/general/reload.png" height="32" width="32" title="Don't click me! Click the button in your browser. It's usually near the url address field"-->
+            near the url address field above<br/>
+            <strong>Reloading the form after you enable cookies is required.</strong></li>
+    </ol>
+    </p>
+    <p>
+    CSRF verification is used to prevent a browser exploit. If you know a way to protect
+    against CSRF that doesn't require cookies, please <a href="/contacts/">let us know</a>.
+    </p>
+    </div>
+
+{% endblock content %}

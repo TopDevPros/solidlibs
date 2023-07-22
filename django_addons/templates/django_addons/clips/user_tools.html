@@ -1,0 +1,35 @@
+{% comment %}
+
+    Shared user signin/signout for navbar.
+
+    Copyright 2013-2023 solidlibs
+    Last modified: 2023-05-17
+
+{% endcomment %}
+
+{% load i18n %}
+    {% if user.is_active and user.is_authenticated %}
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown" style="padding-left:10em; float:right;">
+            <a class="nav-link dropdown-toggle text-light font-weight-bold" href="#" id="navbar-user-id" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ user.username }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if user.is_superuser %}
+                <a class="dropdown-item" href="/admin/password_change/" id="admin-change-password-id" title="Change your password">
+                    {% trans 'Change password' %}
+                </a>
+            {% else %}
+                <a class="dropdown-item" href="/change_password/" id="change-password-id" title="Change your password">
+                    <div class="d-flex justify-content-end">{% trans 'Change password' %}</div>
+                </a>
+                {% endif %}
+                <a class="dropdown-item" href="/logout/" id="log-out-id" title="Log out">
+                    {% trans 'Log out' %}
+                </a>
+            </div>
+        </li>
+    </ul>
+    {% endif %}
+

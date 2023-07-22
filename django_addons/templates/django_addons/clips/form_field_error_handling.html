@@ -1,0 +1,21 @@
+{% comment %}
+
+    Django's form field error handling.
+
+    Include in templates after the form field value. For example:
+
+        {{ form.username }}
+        {% include 'django_addons/clips/form_field_error_handling' %}
+
+    Extracted as a snippet from django template.
+
+    Copyright 2012-2023 solidlibs
+    Last modified: 2023-05-17
+
+{% endcomment %}
+
+{% load i18n %}
+
+                            {% if not form.this_is_the_login_form.errors %}
+                            <span class="alert-error">{{ form.username.errors }}</span>
+                            {% endif %}
