@@ -4,7 +4,7 @@
     These classes are modeled after the ifunctions() in itertools and
     Dave Beasley's Generator Functions for System Programers.
 
-    Portions Copyright 2011-2023 solidlibs
+    Portions Copyright 2011-2023 SolidLibs
     Last modified: 2023-05-17
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.

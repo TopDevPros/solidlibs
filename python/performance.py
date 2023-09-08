@@ -44,7 +44,7 @@
         includes the called function time. So total times for functions
         can add up to more than the total time for the program.
 
-    Copyright 2022-2023 solidlibs
+    Copyright 2022-2023 SolidLibs
     Last modified: 2023-05-17
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.

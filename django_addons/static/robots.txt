@@ -1,0 +1,10 @@
+User-agent: *   # directed to all spiders
+Disallow: *.txt
+Disallow: *.gif
+Disallow: *.jpg
+Disallow: *.png
+Disallow: *.jar
+Disallow: *.exe
+Disallow: *.zip
+Disallow: test*.*
+

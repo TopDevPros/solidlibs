@@ -6,7 +6,7 @@
     This module does not work well with threads. Run a profile inside the thread.
     Remember that profiling slows your code, so remove it when not needed.
 
-    Copyright 2014-2023 solidlibs
+    Copyright 2014-2023 SolidLibs
     Last modified: 2023-05-17
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.

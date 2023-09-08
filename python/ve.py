@@ -1,7 +1,7 @@
 '''
     Virtualenv without shell scripts.
 
-    Copyright 2011-2023 solidlibs
+    Copyright 2011-2023 SolidLibs
     Last modified: 2023-05-17
 
     No more shell script wrappers with "cd VIRTUALENV_DIR ; bin/activate".

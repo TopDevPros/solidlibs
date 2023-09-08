@@ -2,7 +2,7 @@
 '''
     Drive lib
 
-    Copyright 2018-2023 solidlibs
+    Copyright 2018-2023 SolidLibs
     Last modified: 2023-05-17
 '''
 

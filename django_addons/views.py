@@ -1,7 +1,7 @@
 '''
     Views
 
-    Copyright 2019-2023 solidlibs
+    Copyright 2019-2023 SolidLibs
     Last modified: 2023-05-17
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.

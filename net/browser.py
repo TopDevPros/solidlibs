@@ -2,8 +2,8 @@
 '''
     Browser utilities.
 
-    Copyright 2012-2023 solidlibs
-    Last modified: 2023-05-17
+    Copyright 2012-2023 SolidLibs
+    Last modified: 2023-07-28
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.
 '''
@@ -253,7 +253,9 @@ def is_known_bot(browser, other):
             'zgrab' in browser_lc or         # Conformance Testing by a student
             'zgrab' in other_lc or
             'nmap scripting engine' in browser_lc or  # Nmap Scripting Engine
-            'nmap scripting engine' in other_lc
+            'nmap scripting engine' in other_lc or
+            'expanse' in browser_lc or       # Expanse searches IP addresses multiple times a day
+            'expanse' in other_lc
             )
     except:  # noqa
         known_bot = False

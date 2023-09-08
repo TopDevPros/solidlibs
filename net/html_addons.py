@@ -2,8 +2,8 @@
     Extra html functions.
     html_addons is named to avoid conflict with python's html pacakge.
 
-    Copyright 2013-2023 solidlibs
-    Last modified: 2023-05-18
+    Copyright 2013-2023 SolidLibs
+    Last modified: 2023-06-11
 
     Requires BeautifulSoup, html5lib, and lxml for proper pretty printing of HTML.
 
@@ -593,7 +593,7 @@ def spellcheck(html, lang="en_US", personal_dict=None):
         # import late because it's only needed if spellchecking used
         from enchant.checker import SpellChecker   # pylint: disable=import-outside-toplevel
     except ImportError as ie:
-        message = 'Requires debian\'s "enchant" package be installed to use spellcheck().'
+        message = 'Requires debian\'s "enchant" package and pyenchant from pypi to be installed to use spellcheck().'
         log(f'{message}\n{ie}')
         raise ImportError(message) from ie
 

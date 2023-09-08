@@ -5,7 +5,7 @@
     This is an attempt to work around python's changing and incorrectly
     documented subprocess and traceback modules.
 
-    Copyright 2018-2023 solidlibs
+    Copyright 2018-2023 SolidLibs
     Last modified: 2023-05-19
 '''
 
@@ -290,7 +290,7 @@ def background(*command_args, **kwargs):
         after
 
     '''
-    
+
     _init_log()
 
     log.debug(f'background command_args: {command_args}')
@@ -459,6 +459,7 @@ def handle_run_error(command_args, cpe):
     try:
         log(f'cpe stderr and stdout: {cpe.stderrout}')
     except AttributeError:
+        log('no cpe.stderrout') # DEBUG
         pass
     log(cpe) # DEBUG
 

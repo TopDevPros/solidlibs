@@ -7,7 +7,7 @@
     other words, if you try to read a file as lines and
     it doesn't exist, then you just get an empty list.
 
-    Copyright 2008-2023 solidlibs
+    Copyright 2008-2023 SolidLibs
     Last modified: 2023-05-17
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.

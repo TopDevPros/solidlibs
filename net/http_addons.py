@@ -2,7 +2,7 @@
     Extra HTTP functions.
     http_addons is named to avoid conflict with python's http pacakge.
 
-    Copyright 2013-2023 solidlibs
+    Copyright 2013-2023 SolidLibs
     Last modified: 2023-05-17
 
     HTTP is a byte oriented protocol.

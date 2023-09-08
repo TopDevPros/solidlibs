@@ -1,7 +1,7 @@
 '''
     Parse an apache compatible access log line.
 
-    Copyright 2012-2023 solidlibs
+    Copyright 2012-2023 SolidLibs
     Last modified: 2023-05-17
 '''
 

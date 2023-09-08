@@ -6,7 +6,7 @@
     To do: Sanitize solidlibs.net.cli inputs.
     Do we need to include a "distinguished_name" or group or req name in the conf file?
 
-    Copyright 2014-2023 solidlibs
+    Copyright 2014-2023 SolidLibs
     Last modified: 2023-05-17
 '''
 

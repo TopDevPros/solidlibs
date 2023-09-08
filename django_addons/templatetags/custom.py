@@ -1,8 +1,8 @@
 '''
     Custom django template tags and filters
 
-    Copyright 2010-2022 SolidLibs
-    Last modified: 2022-12-11
+    Copyright 2010-2023 SolidLibs
+    Last modified: 2023-08-27
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.
 '''
@@ -25,8 +25,8 @@ from solidlibs.django_addons.templatetags.lookup import lookup
 from solidlibs.django_addons.templatetags.var import do_variables
 from solidlibs.django_addons.utils import get_absolute_url
 from solidlibs.net.html_addons import strip_whitespace_in_html
+from solidlibs.python.human_readable_times import timedelta_to_human_readable
 from solidlibs.python.log import Log
-from solidlibs.python.times import timedelta_to_human_readable
 
 log = Log()
 

@@ -5,8 +5,8 @@
     other packages. For example, many functions could go in
     solidlibs.os.fs.
 
-    Copyright 2009-2023 solidlibs
-    Last modified: 2023-05-17
+    Copyright 2009-2023 SolidLibs
+    Last modified: 2023-07-21
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.
 '''
@@ -598,7 +598,7 @@ def exec_trace(code, ignoredirs=[sys.prefix, sys.exec_prefix], globals=None, loc
         Example:
             from solidlibs.python.internals import exec_trace
             exec_trace("""
-from solidlibs.reinhardt.events import log_event
+from solidlibs.net.events import log_event
 log_event(name, request=request, details=details)
                 """,
                 globals=globals(), locals=locals())

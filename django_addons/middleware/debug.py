@@ -1,12 +1,14 @@
 '''
     Log Django debug pages.
 
-    Copyright 2010-2023 solidlibs
-    Last modified: 2023-05-17
+    Copyright 2010-2023 SolidLibs
+    Last modified: 2023-08-18
+
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.
 '''
 
 import os
+from pprint import PrettyPrinter
 from tempfile import NamedTemporaryFile
 
 try:
@@ -20,29 +22,30 @@ from solidlibs.django_addons.utils import is_django_error_page
 from solidlibs.python.log import Log
 
 log = Log()
+pretty = PrettyPrinter(indent=4).pprint
 
 
 class DebugMiddleware(MiddlewareMixin):
     ''' Write to debugging log.
 
-        Logs Django debug pages and says it's an error. '''
+        Logs Django debug pages and says if it's an error. '''
 
     def process_exception(self, request, exception):
         log('process_exception()')
         # request does not include a kwarg named PATH
-        log(f'request: {request}')
+        log(f'request:\n\t{request}')
         log(exception)
 
     def process_response(self, request, response):
 
         def log_why(why):
             log(why)
-            log(f'request: {request!r}')
-            #log.debug(f'    headers:\n{pretty(request.META)}')
-            #log.debug(f'    data: {repr(request.POST)}')
-            log(f'response: {response!r}')
+            log(f'request: {pretty(request)}')
+            log(f'response: {pretty(response)}')
 
         try:
+            log(request)
+
             if is_django_error_page(response.content):
                 with NamedTemporaryFile(
                     prefix='django.debug.page.', suffix='.html',
@@ -62,4 +65,42 @@ class DebugMiddleware(MiddlewareMixin):
         except AttributeError as ae:
             log(f'ignored in solidlibs.django_addons.middleware.DebugMiddleware.process_response(): {ae}')
 
+        log(response)
+
         return response
+
+
+class DebugDetailsMiddleware(DebugMiddleware):
+    ''' Write debugging details to log. '''
+
+    def process_response(self, request, response):
+
+        if request.META:
+            log(f'request headers:\n{pretty_dictlike(request.META)}')
+
+        if response.status_code != 200:
+            log(f'response statuscode: {response.status_code}')
+            if response.reason_phrase:
+                log(f'response reason: {response.reason_phrase}')
+        if response.headers:
+            log(f'response headers:\n{pretty_dictlike(response.headers)}')
+        else:
+            log('no available response headers')
+        try:
+            if response.content:
+                log(f'response content:\n{pretty(response.content)}')
+        except AttributeError:
+            log('response has no content; streaming content?')
+
+        return response
+
+def pretty_dictlike(meta):
+    ''' django uses some "dict-like" objects. '''
+
+    s = ''
+    for key in meta:
+        if s:
+            s += '\n'
+        s += f'    {key}: {meta[key]}\n'
+
+    return s

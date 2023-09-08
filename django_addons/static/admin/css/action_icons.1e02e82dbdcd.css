@@ -1,0 +1,36 @@
+/*
+    Django action icons.
+
+    Last modified: 2019-06-24
+*/
+
+
+.viewlink, .inlineviewlink {
+    padding-left: 16px;
+    background: url("../img/icon-viewlink.41eb31f7826e.svg") 0 1px no-repeat;
+}
+
+.addlink {
+    padding-left: 16px;
+    background: url("../img/icon-addlink.d519b3bab011.svg") 0 1px no-repeat;
+}
+
+.changelink, .inlinechangelink {
+    padding-left: 16px;
+    background: url("../img/icon-changelink.18d2fd706348.svg") 0 1px no-repeat;
+}
+
+.deletelink {
+    padding-left: 16px;
+    background: url("../img/icon-deletelink.564ef9dc3854.svg") 0 1px no-repeat;
+}
+
+a.deletelink:link, a.deletelink:visited {
+    color: #CC3434;
+}
+
+a.deletelink:focus, a.deletelink:hover {
+    color: #993333;
+    text-decoration: none;
+}
+

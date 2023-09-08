@@ -1,7 +1,7 @@
 '''
     Net utilities.
 
-    Copyright 2014-2023 solidlibs
+    Copyright 2014-2023 SolidLibs
     Last modified: 2023-05-17
 
     There is some inconsistency in function naming.

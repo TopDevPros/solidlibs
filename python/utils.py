@@ -8,7 +8,7 @@
     other packages. For example, many functions could go in
     solidlibs.os.fs.
 
-    Copyright 2009-2023 solidlibs
+    Copyright 2009-2023 SolidLibs
     Last modified: 2023-05-17
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.
@@ -647,7 +647,7 @@ def log_message(message):
     '''
     _debug = False
     if _debug:
-        print(msg)
+        print(message)
 
 @contextmanager
 def chdir(dirname=None):

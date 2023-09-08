@@ -6,7 +6,7 @@
       * Running safelock and safelog servers. The servers can be started
         by hand or with the included systemd service file.
 
-    Copyright 2011-2023 solidlibs
+    Copyright 2011-2023 SolidLibs
     Last modified: 2023-05-17
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.

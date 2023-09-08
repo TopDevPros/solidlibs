@@ -5,7 +5,7 @@
     imports that are not from standard libs should not be
     at global scope. Put the import where it's used.
 
-    Copyright 2008-2023 solidlibs
+    Copyright 2008-2023 SolidLibs
     Last modified: 2023-05-17
 
     This file is open source, licensed under GPLv3 <http://www.gnu.org/licenses/>.
@@ -658,13 +658,13 @@ def strip_html(html):
         >>> html = '<html>\\n<head>\\n<title>Test HTML</title>\\n</head>\\n<body>The test text</body>\\n</html>'
         >>> strip_html(html).strip()
         'Test HTML \\n \\n The test text'
-        >>> html = '{# Copyright 2023 solidlibs #}\\n<body>Another test</body>\\n</html>'
+        >>> html = '{# Copyright 2023 SolidLibs #}\\n<body>Another test</body>\\n</html>'
         >>> strip_html(html).strip()
         'Another test'
         >>> html = '<body>Yet another test</body>\\n{% block %}\\n something\\n {% endblock %}</html>'
         >>> strip_html(html).strip()
         'Yet another test \\n{% block %}\\n something'
-        >>> html = '{% comment %}\\n Copyright 2023 solidlibs\\n{% endcomment %}\\n<body>Last test</body>\\n</html>'
+        >>> html = '{% comment %}\\n Copyright 2023 SolidLibs\\n{% endcomment %}\\n<body>Last test</body>\\n</html>'
         >>> strip_html(html).strip()
         'Last test'
     '''
