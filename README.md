@@ -16,4 +16,9 @@ The solidlibs python package includes shared enhancements, and utilities forpyth
 Install
 -------
 
-    https://codeberg.org/topdevpros/solidlibs.git
+   pip install solidlibs
+
+Updates
+-------
+
+All future updates are available at https://codeberg.org/topdevpros/solidlibs.git
