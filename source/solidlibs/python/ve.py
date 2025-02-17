@@ -1,8 +1,8 @@
 '''
     Virtualenv without shell scripts.
 
-    Copyright 2011-2023 TopDevPros
-    Last modified: 2023-12-14
+    Copyright 2011-2025 TopDevPros
+    Last modified: 2025-02-17
 
     This module activates a specified virtualenv, or searches
     carefully for a relevant virtualenv and activates it.
@@ -163,16 +163,10 @@ def venv(dirname=None, django_app=None, restore=True):
     old_settings_module = os.environ.get('DJANGO_SETTINGS_MODULE')
     old_path = os.environ.get('PATH')
     old_python_path = list(sys.path)
-    try:
-        old_cwd = os.getcwd()
-    except:   # 'bare except' because it catches more than "except Exception"
-        # import late so environment is configured properly
-        from solidlibs.os.user import getdir
 
-        old_cwd = getdir()
-
+    if dirname:
+        debug(f'set up virtual_env for: {dirname}')
     venv_dir = virtualenv_dir(dirname)
-    debug(f'set up virtual_env: {dirname}')
 
     os.environ['VIRTUAL_ENV'] = venv_dir
     debug(f'venv_dir: {venv_dir}')
@@ -187,36 +181,36 @@ def venv(dirname=None, django_app=None, restore=True):
         os.environ['DJANGO_SETTINGS_MODULE'] = f'{django_app}.settings'
         debug(f'django settings: {django_app}')
 
-    os.chdir(venv_dir)
+    with temp_cwd(venv_dir):
 
-    sys.path = venv_sys_path(venv_dir)
-    debug(f'sys.path={sys.path}')
+        sys.path = venv_sys_path(venv_dir)
+        debug(f'sys.path={sys.path}')
 
-    try:
-        yield
+        try:
+            yield
 
-    finally:
+        finally:
 
-        # activate() isn't a context manager, so it sets restore=False
-        if restore:
+            # activate() isn't a context manager, so it sets restore=False
+            if restore:
 
-            debug('finally restoring environment')
-            if old_virtualenv:
-                os.environ['VIRTUAL_ENV'] = old_virtualenv
-            else:
-                del os.environ['VIRTUAL_ENV']
+                debug('finally restoring environment')
+                if old_virtualenv:
+                    os.environ['VIRTUAL_ENV'] = old_virtualenv
+                else:
+                    del os.environ['VIRTUAL_ENV']
 
-            os.environ['PATH'] = old_path
+                os.environ['PATH'] = old_path
 
-            if old_settings_module:
-                os.environ['DJANGO_SETTINGS_MODULE'] = old_settings_module
-            else:
-                if 'DJANGO_SETTINGS_MODULE' in os.environ:
-                    del os.environ['DJANGO_SETTINGS_MODULE']
+                if old_settings_module:
+                    os.environ['DJANGO_SETTINGS_MODULE'] = old_settings_module
+                else:
+                    if 'DJANGO_SETTINGS_MODULE' in os.environ:
+                        del os.environ['DJANGO_SETTINGS_MODULE']
 
-            try_to_cd_back(old_cwd)
+                try_to_cd_back(old_cwd)
 
-            sys.path[:] = old_python_path
+                sys.path[:] = old_python_path
 
     debug('finished venv()')
 
@@ -240,7 +234,14 @@ def activate(dirname=None, django_app=None):
     '''
 
     debug(f've.activate(dirname={dirname or None}, django_app={django_app or None})')
+
+    venv_dir = virtualenv_dir(dirname)
+
+    if f'{venv_dir}/bin' not in os.environ["PATH"]:
+        os.environ['PATH'] = f'{venv_dir}/bin{os.pathsep}{os.environ["PATH"]}'
+    os.environ['PYTHONPATH'] = os.path.join(venv_dir, 'lib/python/site-packages')
     venv(dirname, django_app=django_app, restore=False).__enter__()
+
     debug('activated ve')
 
 def in_virtualenv(dirname=None):
@@ -270,21 +271,27 @@ def in_virtualenv(dirname=None):
     return in_venv
 
 def virtualenv_dir(dirname=None):
-    ''' Return full path to a virtualenv, or None. Raises exception if the
+    ''' Return full path to an appropriate virtualenv. Raises exception if the
         specified dirname is not a virtualenv and no virtualenv is found.
 
         virtualenv_dir() searches for a virtualenv.
 
-        dirname: starting dir to search for a virtualenv.
+        Args:
+            dirname: starting dir to search for a virtualenv. Default is None.
 
-        If dirname is not None, virtualenv_dir() sets it to the
-        first dir that is a virtualenv:
+        If dirname is None (the default), virtualenv_dir() searches for
+        the first dir in this list that is a virtualenv:
+            * The VIRTUAL_ENV environment variable
+            * current directory
+            * calling module's  directory
+            * calling module's subdir
+            * calling module's parent dir
+
+        If dirname is not None, virtualenv_dir() searches for the
+        first dir in this list that is a virtualenv:
             * dirname
             * any parent dir of dirname
             * any immediate subdir of the above
-            * The VIRTUAL_ENV environment variable
-            * callers directory
-            * calling module's subdir, or parent dir
 
         This lets you run a program which automatically finds and then
         activates its own virtualenv. You don't need a wrapper script to
@@ -317,7 +324,10 @@ def virtualenv_dir(dirname=None):
     if dirname:
         vdir = check_dir_for_virtualenv(dirname)
         if not vdir:
-            raise ValueError('dirname does not have a virtualenv')
+            raise ValueError(f'No virtualenv found in "{dirname}"')
+
+    if not vdir:
+        vdir = check_dir_for_virtualenv(os.getcwd())
 
     if not vdir:
         if 'VIRTUAL_ENV' in os.environ:
@@ -379,7 +389,9 @@ def virtualenv_dir(dirname=None):
                 vdir = check_dir_for_virtualenv(dirname)
 
     if not vdir:
-        raise Exception(f'No virtualenv found for {dirname}')
+        raise ValueError(f'No virtualenv found')
+
+    debug(f'virtualenv dir: {vdir}')
 
     return vdir
 
@@ -466,14 +478,20 @@ def make_v_sh(venv_dir):
     # this may be unneeded since we explicitly activate the env below
     activate(venv_dir)
 
-    # activate the venv for subprocesses
-    v_environ = os.environ.copy()
-    v_environ['PATH'] = f'{venv_dir};{os.environ["PATH"]}'
-    v_environ['PYTHONPATH'] = os.path.join(venv_dir, 'lib/python/site-packages')
     # sh customized for the virtualenv
-    v_sh = sh(_env=v_environ)
+    v_sh = sh(_env=get_v_environ(venv_dir))
 
     return v_sh
+
+def get_v_environ(venv_dir):
+    ''' Return an environment dict for this virtualenvdir '''
+
+    # activate the venv for subprocesses
+    v_environ = os.environ.copy()
+    v_environ['PATH'] = f'{venv_dir}/bin;{os.environ["PATH"]}'
+    v_environ['PYTHONPATH'] = os.path.join(venv_dir, 'lib/python/site-packages')
+
+    return v_environ
 
 def is_virtualenv(vdir):
     ''' Return whether specified dir is a virtualenv. '''
@@ -528,6 +546,17 @@ def package_dir(package, dirname=None):
 
     return os.path.join(site_packages_dir(dirname), package)
 
+@contextmanager
+def temp_cwd(dirname):
+    old_cwd = os.getcwd()
+    os.chdir(dirname)
+
+    try:
+        yield
+
+    finally:
+        try_to_cd_back(old_cwd)
+
 def try_to_cd_back(old_cwd):
     # because we may have su'd to another user since we originally
     # cd'd to the old dir, we may not have permission to cd back
@@ -535,8 +564,7 @@ def try_to_cd_back(old_cwd):
         os.chdir(old_cwd)
     except OSError:
         # just log it
-        #log('could not chdir(%s); probably not an error' % old_cwd)
-        pass
+        log(f'could not restore old cwd: {old_cwd}')
 
 
 if __name__ == "__main__":
